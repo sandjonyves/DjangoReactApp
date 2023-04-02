@@ -1,0 +1,64 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* .nameL{
+    position: absolute;
+    right: 1000px;
+    top:250px;
+    transform: rotate(-90deg);
+    margin: 0;
+    padding:0 ;
+    font-size: 5em;
+    color: transparent;
+    background-image: linear-gradient(to left,#f00,#ff0,#0ff,#0f0,#00f);
+    -webkit-background-clip: text;
+    animation: animate 5s linear infinite;
+    background-size: 1000%;
+}
+
+@keyframes animate {
+
+    0%{
+        background-position: 0% 100%;
+    }
+
+    50%{
+        background-position: 100% 0%;
+    }
+    100%{
+        background-position: 0% 100%;
+    }
+    
+}
+
+.nameR{
+     position: absolute;
+     left: 1000px;
+     top: 250px;
+     transform: rotate(-90deg);
+    margin: 0;
+    padding:0 ;
+    font-size: 5em;
+    color: transparent;
+    background-image: linear-gradient(to left,#f00,#ff0,#0ff,#0f0,#00f);
+    -webkit-background-clip: text;
+    animation: animate 5s linear infinite;
+    background-size: 1000%;
+}
+
+@keyframes animate {
+
+    0%{
+        background-position: 0% 100%;
+    }
+
+    50%{
+        background-position: 100% 0%;
+    }
+    100%{
+        background-position: 0% 100%;
+    }
+    
+}
+ */
