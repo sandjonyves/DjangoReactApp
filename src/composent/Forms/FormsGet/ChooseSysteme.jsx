@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom"
+import { BrowserRouter, Link, Routes } from "react-router-dom"
 import App from "../../../App"
 import NavOther from "../../NavOther"
 import ChooseStandard from "./ChooseStandard"
@@ -22,7 +22,7 @@ function ChooseSysteme(params) {
   <div className="text-center mt-20  ">
         <h1>Quel sous-système d'éducation votre  enfant fait t'il ?</h1>
      <div className={but}>
-        <button className={Style}>sous-systeme Anglophone</button>
+        <button className={Style}><Link to={<App/>}>sous-systeme Anglophone </Link></button>
      </div>
 
      <div className={but}>
@@ -33,7 +33,8 @@ function ChooseSysteme(params) {
         <button className={Style}>sous-systeme Bilingue</button>
      </div>
      <div>
-      <Link to=""> <button>  precedent </button></Link>
+   
+   
      </div>
  </div>
     </div>

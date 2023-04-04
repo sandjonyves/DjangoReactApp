@@ -14,6 +14,8 @@ import {
 import BodyOther from './composent/OtherCoponent/BodyOther';
 import ChooseSysteme from './composent/Forms/FormsGet/ChooseSysteme';
 import AppForm from './composent/Forms/AppForm';
+import BodyHelp from './composent/OtherCoponent/BodyHelp';
+import Modal from './composent/OtherCoponent/Modal';
 
 
 const router = createBrowserRouter([
@@ -30,8 +32,20 @@ const router = createBrowserRouter([
 
   },
   {
-    path: "Form",
+    path: "/Form",
     element:<AppForm/>
+
+  },
+
+  {
+    path: "/help",
+    element:<Modal/>
+
+  },
+
+  {
+    path: "/helps",
+    element:<BodyHelp/>
 
   },
 
