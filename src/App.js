@@ -9,11 +9,12 @@ import NameSite from "./composent/BodyComponent/NameSite"
 import "./App.css"
 import Footer_end from "./composent/footer_end";
 import {Routes,Route} from "react-router-dom";
-import { Link } from "react-router-dom";
+import {BrowserRouter, Link } from "react-router-dom";
 import Bodybutton from "./composent/BodyComponent/BodyButton";
 import BodyOther from "./composent/OtherCoponent/BodyOther";
 import Navbar from "./composent/Navbar";
 import Footer from "./composent/OtherCoponent/Footer";
+import ChooseStandard from "./composent/Forms/FormsGet/ChooseStandard";
 
 function App() {
 
@@ -64,6 +65,7 @@ return(
 
   <Footer/>
 </div>
+
 </React.Fragment>
 
 )

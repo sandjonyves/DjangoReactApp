@@ -19,8 +19,9 @@ function Navbar() {
      
             <a href="/" className="home ">home</a>
             <Link to="https://wa.me/+237654340911">contactez-nous</Link>
-            <Link to="/cont">blog</Link>
+            <Link to="/cont">bon à savoir</Link>
             <a href="/#">à propos</a>
+            <a href="#">se connecter</a>
             <button onClick={shownav} className="nav-btn nav-close-btn">
             <FaTimes/> 
             </button>

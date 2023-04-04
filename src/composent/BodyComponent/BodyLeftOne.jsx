@@ -6,7 +6,7 @@ import "../style/StyleTextone.css"
 function BodyLeftOne() {
          
 
-      const text="obtenir un tuteur en un instant"
+      const text="obtenir un encadreur en un instant"
 
     return (
         <div className=" absolute mx-[200px] lg:mx-[300px] 

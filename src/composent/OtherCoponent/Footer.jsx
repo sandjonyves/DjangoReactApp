@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom"
 
 function Footer(params) {
 
@@ -18,10 +19,12 @@ function Footer(params) {
                
                   <ul class="text-gray-600 dark:text-gray-400 font-medium">
                       <li class="mb-4">
-                          <a href="https://flowbite.com/" class="hover:underline">obtenir</a>
+                      <Link to="/Form">Obtenir</Link>
                       </li>
                       <li>
-                          <a href="https://tailwindcss.com/" class="hover:underline">Aide Gratuit</a>
+                      <Link to="/help"> 
+                        obtenir de l'aide Gratuit
+                        </Link>
                       </li>
                   </ul>
               </div>
