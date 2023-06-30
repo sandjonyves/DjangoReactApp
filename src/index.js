@@ -3,19 +3,20 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import { BrowserRouter } from "react-router-dom";
-import { createRoot } from "react-dom/client";
+
 import {
   createBrowserRouter,
   RouterProvider,
-  Route,
-  Link,
+  
 } from "react-router-dom";
 import BodyOther from './composent/OtherCoponent/BodyOther';
 import ChooseSysteme from './composent/Forms/FormsGet/ChooseSysteme';
 import AppForm from './composent/Forms/AppForm';
 import BodyHelp from './composent/OtherCoponent/BodyHelp';
 import Modal from './composent/OtherCoponent/Modal';
+import NewForm from './composent/Forms/NewForm';
+import ChooseStandard from './composent/Forms/FormsGet/ChooseStandard';
+import ChooseStandardF from './composent/Forms/FormsGet/Primary/primaryFrancophone/ChooseStandartF';
 
 
 const router = createBrowserRouter([
@@ -33,21 +34,43 @@ const router = createBrowserRouter([
   },
   {
     path: "/Form",
-    element:<AppForm/>
+    element:<AppForm></AppForm>,
 
   },
 
   {
-    path: "/help",
-    element:<Modal/>
+    path: "/he",
+    element:<NewForm/>
 
   },
 
   {
     path: "/helps",
+    element:<Modal/>
+
+  },
+
+  {
+    path: "/help",
     element:<BodyHelp/>
 
   },
+  {
+    path: "/choose",
+    element:<ChooseSysteme/>
+
+  },
+  {
+    path: "/chooses",
+    element:<ChooseStandard/>
+
+  },
+  {
+    path: "/chooseF",
+    element:<ChooseStandardF/>
+
+  },
+
 
   
 ]);

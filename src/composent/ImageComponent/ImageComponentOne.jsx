@@ -15,7 +15,7 @@ function ImageCoponentOne() {
   <div className="">    
 <div className="   w-full h-[500px] ">
 <div className="  " >
-<Carousel autoPlay  interval={1500} infiniteLoop='true'   thumbWidth={50}  >
+<Carousel autoPlay  interval={1500} infiniteLoop='true'    thumbWidth={50}  >
 
 {images.map( (img) => {
   return( 

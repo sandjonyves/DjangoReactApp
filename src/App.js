@@ -1,29 +1,29 @@
 
-import React, { useRef } from "react";
-import { FaBars, FaTimes } from "react-icons/fa";
+import React from "react";
+//import { FaBars, FaTimes } from "react-icons/fa";
 import "./composent/style/Style_navBar.css";
 import ImageCoponentOne from "./composent/ImageComponent/ImageComponentOne";
 import BodyTextTwo from "./composent/BodyComponent/BodyTextTwo";
 import BodyLeftOne  from "./composent/BodyComponent/BodyLeftOne"
 import NameSite from "./composent/BodyComponent/NameSite"
 import "./App.css"
-import Footer_end from "./composent/footer_end";
-import {Routes,Route} from "react-router-dom";
-import {BrowserRouter, Link } from "react-router-dom";
+//import Footer_end from "./composent/footer_end";
+//import {Routes,Route} from "react-router-dom";
+//import {BrowserRouter, Link } from "react-router-dom";
 import Bodybutton from "./composent/BodyComponent/BodyButton";
-import BodyOther from "./composent/OtherCoponent/BodyOther";
+//import BodyOther from "./composent/OtherCoponent/BodyOther";
 import Navbar from "./composent/Navbar";
 import Footer from "./composent/OtherCoponent/Footer";
-import ChooseStandard from "./composent/Forms/FormsGet/ChooseStandard";
+//import ChooseStandard from "./composent/Forms/FormsGet/ChooseStandard";
 
 function App() {
 
-    const navref = useRef()
+    //const navref = useRef()
 
-    const shownav = () => {
+  //   const shownav = () => {
     
-       navref.current.classList.toggle('responsive_bar')
-   }
+  //      navref.current.classList.toggle('responsive_bar')
+  //  }
   
 return(
 
