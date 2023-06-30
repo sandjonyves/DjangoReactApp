@@ -4,7 +4,15 @@ export default function Modal() {
   const [showModal, setShowModal] = React.useState(false);
   return (
     <>
-      <button
+      
+<div className="space-y-10 text-center m-60 flex justify-center items-center bg-red-300 w-[500px] h-[300px] ">
+  <div><h1 className="text-xl  " htmlFor="entrer votre adresse">entrer votre adresse</h1>
+    <input type="text" className=" " placeholder="cradat yaounde" />
+  </div>
+</div>
+
+<div>
+<button
         className="bg-pink-500 text-white active:bg-pink-600 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
         type="button"
         onClick={() => setShowModal(true)}
@@ -66,6 +74,10 @@ export default function Modal() {
           <div className="opacity-25 fixed inset-0 z-40 bg-black"></div>
         </>
       ) : null}
+</div>
+
+
+
     </>
   );
 }

@@ -1,14 +1,15 @@
 import { useState } from "react";
 import { Link } from "react-router-dom"
 import {useForm} from "react-hook-form"
+import axios from 'axios'
+import emailjs from "@emailjs/browser"
 
 function ChooseStandard(){
 
   //initiallisation des outils de gestion des formilaires de react js
    const {handleSubmit,register,formState: {errors}} = useForm()
-    function onSubmit(data){
-      console.log(data)
-    }
+
+   
 
    //  
    const pattern = /^6[0-9]{8}$/
@@ -21,70 +22,10 @@ function ChooseStandard(){
    //declaration of constate who will be use to change form
 
    const [count,setcount] = useState(0);
-   const radioValue = () => {
-       
+   
+   
 
-      var checkboxes2 = document.querySelectorAll('input[type="checkbox"]');
-      var b =document.querySelector("#butNext");
-      let verif=false;
-      let index = 0
-      while( index < checkboxes2.length) {
-       
-         
-         const element = checkboxes2[index].checked;
-         console.log(element);
-         console.log(verif);
-         index++;
-         if (element) {
-            verif=true;
-         }
-      }
-    
-    
-      if (verif) {
-         console.log(checkboxes2.length);
-        
-        b.removeAttribute("disable");
-        // b.disabled=false;
-     
-        b.className="bg-blue-500 hover:bg-blue-700 text-white  font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline "
-         b.addEventListener('click', (event) => {
-            let i = 0;
-            // while( i < checkboxes2.length) {
-                      
-            //  let elemen= checkboxes2[0];
-            
-            //      elemen.checked=true;
-                 
-            //      console.log("iiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii");
-            //              console.log(elemen);
-            //              i++;
-                         
-                      
-                      
-                   //}
-    
-         handleNext();
-      
-        
-        });
-         
-      }else{
-        
-         //b.disable=true;
-         b.className="bg-white text-white  font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline "
-         b.addEventListener('click', (event) => {
-             
-            
-            b.className="bg-white  font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline "
-   
-   
-           });
-      }
-     
-    }
-   
-   
+
    const formArray  =[1,2,3,4,5];
    const [formNo,setFormNo] = useState(formArray[0]);
 
@@ -97,13 +38,12 @@ function ChooseStandard(){
    let but = "flex flex-col mt-5 space-y-5  h-auto  w-auto   ml-20 border-2 border-slate-300 mr-20  "
    let buts = "flex flex-col mt-5 space-y-5  h-auto  w-auto   ml-10 border-2 border-slate-300 mr-10  "
    let font = "w-screen h-screen  bg-gradient-to-r from-cyan-500 to-blue-500 flex  justify-center items-center"
-
    //incrrmentation ou decrementation de fomno pour afficher chaque forùulaire
    const handleNext = () =>{
        
        setFormNo(formNo + 1)
    }
-   const handlePrev = () =>{
+   const handleprev = () =>{
 
        setFormNo(formNo -1 )
    }
@@ -111,62 +51,212 @@ function ChooseStandard(){
        setFormNo2(formNo2 + 1)
    }
   
-   const handlePrev2 = () =>{
+   const handleprev2 = () =>{
        setFormNo2(formNo2 -1 )
    }
   
    const ctl = () => {
-    var a=  document.querySelector("#formctl")
-    a.className="hidden"
-   }
-   const ctl2 = () => {
       var a=  document.querySelector("#formctl")
-      a.className=""
+      a.className="hidden"
+     }
+     const ctl2 = () => {
+        var a=  document.querySelector("#formctl")
+        a.className=""
+       }
+    
+       //gestion de la permutation entre le primaire et secondaire
+     function all() {
+        handleNext()
+        ctl()
+     }
+     function all2() {
+        handleprev()
+        ctl2()
+     }
+     function all21() {
+        handleprev2()
+        ctl2()
      }
   
-     const change = () =>{
-
-      var checkboxes2 = document.querySelectorAll('input[type="checkbox"]');
-         var b =document.querySelector("#butNext");
+   var chg ;
+  
+  const radioValue = () => {
        
-         console.log(b);
+
+   var checkboxes2 = document.querySelectorAll('input[type="checkbox"]');
+   var b =document.querySelector("#butNext");
+   let verif=false;
+   let index = 0
+   while( index < checkboxes2.length) {
+    
       
-         console.log("fdsfffffffffffffffffffffff");
+      const element = checkboxes2[index].checked;
+      console.log(element);
+      console.log(verif);
+      index++;
+      if (element) {
+         verif=true;
+      }
+   }
+ 
+ 
+   if (verif) {
+      console.log(checkboxes2.length);
+     
+     b.removeAttribute("disable");
+     // b.disabled=false;
+     chg=1;
+     b.className="bg-blue-500 hover:bg-blue-700 text-white  font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline "
+      b.addEventListener('click', (event) => {
+         let i = 0;
+         // while( i < checkboxes2.length) {
+                   
+         //  let elemen= checkboxes2[0];
          
-         //   b.removeAttribute("disable");
-           // b.disabled=false;
-         //  b.className="bg-blue-500 hover:bg-blue-700  font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline "
-         //b.attributes='disable';
-         b.addEventListener('click', (event) => {
-            console.log(event);
-         
-         handleNext()
-        });
-       
+         //      elemen.checked=true;
+              
+         //      console.log("iiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii");
+         //              console.log(elemen);
+         //              i++;
+                      
+                   
+                   
+                //}
+ 
+      handleNext();
    
-        handlePrev();
-        // console.log(f);
-       
-      // f.reset();
-    } 
-     //gestion de la permutation entre le primaire et secondaire
-   function all() {
+     
+     });
+      
+   }else{
+      chg=0
+      //b.disable=true;
+      b.className="bg-white text-white  font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline "
+      b.addEventListener('click', (event) => {
+          
+         
+         b.className="bg-white  font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline "
+
+
+        });
+   }
+  
+ }
+
+ const change = () =>{
+
+   var checkboxes2 = document.querySelectorAll('input[type="checkbox"]');
+      var b =document.querySelector("#butNext");
+    
+      console.log(b);
+   
+      console.log("fdsfffffffffffffffffffffff");
+      
+      //   b.removeAttribute("disable");
+        // b.disabled=false;
+      //  b.className="bg-blue-500 hover:bg-blue-700  font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline "
+      //b.attributes='disable';
+      b.addEventListener('click', (event) => {
+         console.log(event);
+      
       handleNext()
-      ctl()
-   }
-   function all2() {
-      handlePrev()
-      ctl2()
-   }
-   function all21() {
-      handlePrev2()
-      ctl2()
-   }
+     });
+    
+
+     handleprev();
+     // console.log(f);
+    
+   // f.reset();
+ } 
+// const change2 = () =>{
+//    let chge =1;
+//    return chge;
+// }
 
 
-  return <div onSubmit={handleSubmit(onSubmit)}>
+ const changeCmp = () =>{
+ 
+   // let chge2 = change2();
+    var b =document.querySelector("#butNext");
+    var a =document.querySelector("#prc");
+  
+   
+ a.addEventListener('click', (event) => {
+   
+   b.removeAttribute("disable");
+   // b.disabled=false;
+   b.className="bg-blue-500 hover:bg-blue-700 text-white  font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline "
+         
+   handleprev();
+      });
+      
 
-<div className="text-center text-w-[300px]">SERAD LA SAOLUTION POUR VOS ENFANTS </div>
+}
+//  const url ="http://127.0.0.1:8000/data/list/"
+// const gestAllTask= ( )=>{
+//    axios.get(url + 'data/list/')
+//    .then(res =>{
+//       alert(res.data);
+//     //  console.log(res.data);
+//    })
+//   .catch( res => {
+//    alert("erros");
+//   })
+// }
+
+const onSubmit = (data) => {
+
+   // axios.post(url+'data/list/',{
+   //    'name': data.class,
+   //    'niveau':data.email,
+   //    'classe':data.class,
+   // }).then(res => {
+   //    alert("errosfdfgdf");
+   //    console.log(data)
+   //    gestAllTask()
+   // }).then(err => {
+   //    alert(err);
+   // })
+   // gestAllTask()
+   // alert(data.class);
+   // console.log(data)
+   console.log(data);
+//data.email ="sandjonyves@gmail.com"
+console.log(data);
+   const template ="template_flpq63a"
+   const service = "service_9dc6y2a"
+   sendfeeback(service,template,{
+      name:data.name,
+      phone : data.number,
+      niveau : data.class,
+      //reply_to : r.target.reset()
+   })
+ 
+ }
+const sendfeeback = (service,template,variable) => {
+   //alert("sucess");
+   var start = window.performance.now();
+emailjs
+
+.send((r) =>{
+   alert("sucess------------------------------");  
+},service,template,variable,"jhpPPttN08Qj9L-EJ")
+
+.then((res) => {
+   //alert("sucess");
+   var end = window.performance.now();
+   var execute=end-start
+   alert(start+"   les temps   "+end+"temps d'execution :"+execute);
+})
+.catch((err) =>{
+  
+   alert("error");
+})
+}
+
+  return<><div id ="container"  className=" "  onSubmit={handleSubmit(onSubmit)}>
+  
+{/* formulaire des eleves de l'ecole primaire  */}
 
 {
 formNo === 2 && <div>
@@ -174,12 +264,14 @@ formNo === 2 && <div>
 <div className="card  md:w-[400px] w-[300px] max-[332px]:w-[250px]  rounded-md shadow-md bg-white  my-20">
      
       <h1 className="uppercase text-center text-xl ">
-         Choose class
+         Choix de la classe
       </h1>
-
+     <div className={but}>
+      <input className={Style} type="button" value="djfsk" />
+     </div>
       <div className={but}>
          <input type="button" 
-            value=" Class1"
+            value="SIL"
             {...register("class")} 
             onClick={handleNext} 
             className={Style} >
@@ -187,35 +279,36 @@ formNo === 2 && <div>
       </div>
       <div className={but}>
          <input type="button" 
-            value="Class2" 
+            value="CP" 
             onClick={handleNext}   
             className={Style}>
          </input>
       </div>
       <div className={but}>
          <input type="button"
-            value="Class3" 
+            value="CE1" 
             onClick={handleNext}   
             className={Style}>
          </input>
       </div>
+     
       <div className={but}>
          <input type="button" 
-            value="Class4" 
+            value="CE2" 
             onClick={handleNext}  
             className={Style}>
          </input>
       </div>
       <div className={but}>
          <input type="button" 
-            value="Class5" 
+            value="CM1" 
             onClick={handleNext}   
             className={Style}>  
          </input>
       </div>
       <div className={but}>
          <input type="button" 
-            value="Class6"  
+            value="CM2"  
             onClick={handleNext}  
             className={Style}>
          </input>
@@ -227,7 +320,7 @@ formNo === 2 && <div>
                class="butNexts" 
                id="butNext" 
                className="bg-blue-500 
-               font-bold py-2  px-4 rounded focus:outline-none 
+               font-bold py-2  px-4 rounded focus:outline-none text-white
                focus:shadow-outline hover:bg-blue-700 " href="#">
                prev
          </button>
@@ -242,45 +335,48 @@ formNo === 2 && <div>
 {
 
 
-   formNo === 3 && <div>
+   formNo === 3 && <div >
 
-  
-   <form  className=" p-5 max-[500px]:h-[1000px] h-screen bg-slate-300 w-screen h-screen  bg-gradient-to-r from-cyan-500 to-blue-500 flex  justify-center items-center">
+  <div className={font}>
+   <form id = "form" className="w-screen h-screen  bg-gradient-to-r 
+   from-cyan-500 to-blue-500 flex  justify-center items-center p-5 max-[500px]:h-[1000px] 
+   flex 
+   justify-center items-center ">
    <div className="card w-[500px]    h-auto rounded-md shadow-md bg-white p-5 my-10">
-      <h1 className="text-center text-xl "> Choose Matter</h1>
+      <h1 className="text-center text-xl "> CHOIX DES MATIERES</h1>
    <div className={buts}>
       <label htmlFor="Mathematics   " className={Style}>
-         Mathematics
-         <input  type="checkbox" class="checksM" onClick={radioValue} {...register("matiere")} value="mathematics"  className={Styles}   /> 
+         Mathematique
+         <input  type="checkbox"  id="checksM" class="checksMs" onClick={radioValue} {...register("matiere")} value="mathematics"  className={Styles}   /> 
       </label>
    </div>
    <div className={buts}>
       <label htmlFor="ICT" className={Style}>ICT
-            <input type="checkbox" class="checksM" onClick={radioValue} {...register("matiere")} value="ICT" className={Styles}/>
+            <input type="checkbox" id="checksM" onClick={radioValue} {...register("matiere")} value="ICT" className={Styles}/>
       </label>
    </div>
    <div className={buts}>
          <label htmlFor=" Science and Tecnology" className={Style}> 
-         Science and Tecnology
+         Science/Technologie
             <input type="checkbox" class="checksM" onClick={radioValue} {...register("matiere")} value="Science and Tecnology" className={Styles} />
          </label>
    </div>
    <div className={buts}>
          <label htmlFor="English" className={Style}>
-            English 
-               <input type="checkbox" class="checksM" onClick={radioValue} {...register("matiere")} value="English"   className={Styles}/>
+            Anglais
+               <input type="checkbox" id="checksM" onClick={radioValue} {...register("matiere")} value="English"   className={Styles}/>
          </label>
    </div>
    <div className={buts}>
          <label htmlFor="French" className={Style}>
-            French
+            Français
                <input type="checkbox" class="checksM" onClick={radioValue} {...register("matiere")} value="French"   className={Styles}></input>
          </label>
    </div>
    <div className={buts}>
          <label htmlFor="social tudies" className={Style}>
             social tudies 
-               <input type="checkbox" class="checksM" onClick={radioValue} {...register("matiere")} value="social tudies" 
+               <input type="checkbox" id="checksM" onClick={radioValue} {...register("matiere")} value="social tudies" 
                  className={Styles} ></input>
          </label>
    </div>
@@ -291,7 +387,7 @@ formNo === 2 && <div>
                className={Styles}></input>
          </label>
          </div>
-         <div className={buts}>
+         <div className={buts} >
             <label htmlFor="Artistic Education" className={Style}>
                Artistic Education
                <input type="checkbox" class="checksM" onClick={radioValue} {...register("matiere")} 
@@ -300,9 +396,9 @@ formNo === 2 && <div>
                </input>
             </label>
       </div>
-      <div className={buts}>
+      <div className={buts} >
          <label htmlFor="Natural Language" className={Style}>
-         Natural Language
+          Langage Naturel
             <input type="checkbox" class="checksM" onClick={radioValue} {...register("matiere")}
                value="Natural Language"   
                className={Styles}>
@@ -311,22 +407,23 @@ formNo === 2 && <div>
       </div>
    <div>
       <div class=" space-x-20 mt-10  text-center   items-center justify-between">
-         <button  onClick={handlePrev}  class=" bg-blue-500 hover:bg-blue-700 text-white
+         <button  onClick={handleprev}  class=" bg-blue-500 hover:bg-blue-700 text-white
           font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" 
           type="button">
-            prev
+           prec
          </button>
          <button disable id="butNext"   className=" bg-blue-500 hover:bg-blue-700 
          text-white  font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline opacity-0
           " >
-            next
+           suivant
          </button>
+         
    </div>
    </div>
 </div>
 </form>
 </div>
-
+</div>
 
 }
 {
@@ -426,14 +523,13 @@ formNo === 2 && <div>
 
 
 {/* ////////////////formilaire du niveau secondaire/////// */}
-
 {
 
 
 formNo2 === 1  && <div id="formctl" className="">
    <div className={font}>
   <div className="card w-[400px] h-auto md:mx-20 mx-60  rounded-md shadow-md bg-white p0 my-20 ">
-   <h1 className="uppercase text-center text-xl">choose the academic level </h1>
+   <h1 className="uppercase text-center text-xl">CHOIX DU NIVEAU </h1>
       <div className={but} onClick={all} >
          <button className={Style}  >primaire</button>
       </div>
@@ -445,7 +541,7 @@ formNo2 === 1  && <div id="formctl" className="">
 {/* <button onClick={handleNext}  class=" bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="button">
 prev
 </button> */}
-       <Link to="/form"><button   id="butNext" 
+       <Link to="/form"><button   
          className="  bg-blue-500 hover:bg-blue-700 text-white
          font-bold py-2  px-4 rounded focus:outline-none focus:shadow-outline ">
              <div className="">prev</div>
@@ -467,68 +563,71 @@ formNo2 === 2 && <div>
    <div className="card  md:w-[400px] w-[300px] max-[332px]:w-[250px]  rounded-md shadow-md bg-white  my-20">
         
          <h1 className="uppercase text-center text-xl ">
-            Choose class
+            Choix de la classe
          </h1>
-
+          <div className={but}>
+            <input type="button" value="ddsfdfs" />
+          </div>
          <div className={but}>
-            <input type="button" 
-               value=" Form1"
+           
+            <input id="one" type="button" 
+               value="Form1"
                {...register("class")} 
                onClick={handleNext2} 
-               className={Style} >
-            </input>
+               className={Style} />
+        
          </div>
          <div className={but}>
             <input type="button" 
                value="Form2" 
                onClick={handleNext2}   
-               className={Style}>
-            </input>
+               className={Style}/>
+       
          </div>
          <div className={but}>
             <input type="button"
                value="Form3" 
                onClick={handleNext2}   
-               className={Style}>
-            </input>
+               className={Style}/>
+           
          </div>
          <div className={but}>
             <input type="button" 
                value="Form4" 
                onClick={handleNext2}  
-               className={Style}>
-            </input>
+               className={Style}/>
+            
          </div>
          <div className={but}>
             <input type="button" 
                value="Form5" 
                onClick={handleNext2}   
-               className={Style}>  
-            </input>
+               className={Style}/>  
+            
          </div>
          <div className={but}>
             <input type="button" 
                value="Lower6"  
                onClick={handleNext2}  
-               className={Style}>
-            </input>
+               className={Style}/>
+           
          </div>
          <div className={but}>
             <input type="button" 
                value="Opper6"  
                onClick={handleNext2}  
-               className={Style}>
-            </input>
+               className={Style}/>
+            
          </div>
          <div class=" space-x-20 mt-10  text-center  
              items-center justify-between">
-            <button onClick={all21}   
+            <button onClick={handleprev2}   
                   class="butNexts" 
                   id="butNext" 
                   className="bg-blue-500 
-                  font-bold py-2  px-4 rounded focus:outline-none 
+                  font-bold py-2  px-4 rounded focus:outline-none  text-white
                   focus:shadow-outline hover:bg-blue-700 " href="#">
-                  prev
+                 prec
             </button>
       </div> 
     </div>
@@ -545,12 +644,13 @@ formNo2 === 2 && <div>
    formNo2 === 3 && <div>
 
   
-   <div className=" p-5 max-[500px]:h-[1000px] h-screen bg-slate-300 w-screen h-screen  bg-gradient-to-r from-cyan-500 to-blue-500 flex  justify-center items-center ">
+   <div className=" p-5 max-[500px]:h-[1000px] 
+  w-screen h-screen  bg-gradient-to-r from-cyan-500 to-blue-500 flex  justify-center items-center ">
    <div className="card w-[500px]    h-auto rounded-md shadow-md bg-white p-5 my-10">
-      <h1 className="text-center text-xl "> choose matter</h1>
+      <h1 className="text-center text-xl "> Choix des matieres</h1>
    <div className={buts}>
-      <label htmlFor="Mathematics   " className={Style}>
-         Mathematics
+      <label htmlFor="Mathematique   " className={Style}>
+         Mathematique
          <input  type="checkbox" class="checksM" onClick={radioValue} {...register("matiere")} value="mathematics"  className={Styles}  /> 
       </label>
    </div>
@@ -611,15 +711,15 @@ formNo2 === 2 && <div>
       </div>
    <div>
       <div class=" space-x-20 mt-10  text-center   items-center justify-between">
-         <button onClick={handlePrev2}  class=" bg-blue-500 hover:bg-blue-700 text-white
+         <button onClick={handleprev2}  class=" bg-blue-500 hover:bg-blue-700 text-white
           font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" 
           type="button">
-            prev
+           prec
          </button>
-         <button  class="butNexts" id="butNexts"  className=" bg-blue-500 hover:bg-blue-700 
-         text-white  font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline
-          " href="#">
-            next
+         <button disable id="butNext"   className=" bg-blue-500 hover:bg-blue-700 
+         text-white  font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline opacity-0
+          " >
+           suivant
          </button>
    </div>
    </div>
@@ -722,8 +822,7 @@ formNo2 === 2 && <div>
 </div>
 </div>
 }
-
-   </div>
+   </div></> 
 }
 
 
