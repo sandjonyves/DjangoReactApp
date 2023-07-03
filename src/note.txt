@@ -1,0 +1,5 @@
+ git clone url_du_repo
+- git status
+- git add un_fichier.py
+- git commit -m "Votre message"
+- git push

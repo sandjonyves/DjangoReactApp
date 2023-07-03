@@ -21,7 +21,7 @@ function Navbar() {
             <Link to="https://wa.me/+237654340911">contactez-nous</Link>
             <Link to="/cont">bon à savoir</Link>
             <a href="/#">à propos</a>
-            <a href="#">se connecter</a>
+            <a href="http://127.0.0.1:8000/admin/">se connecter</a>
             <button onClick={shownav} className="nav-btn nav-close-btn">
             <FaTimes/> 
             </button>
