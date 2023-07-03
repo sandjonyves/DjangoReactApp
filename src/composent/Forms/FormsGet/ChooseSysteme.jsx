@@ -16,7 +16,8 @@ function ChooseSysteme() {
       }
   
 
-  
+      let font = "w-screen h-screen  bg-gradient-to-r from-cyan-500 to-blue-500 flex  justify-center items-center"
+
   const [state,setstate] = useState("")
    
   
@@ -43,11 +44,8 @@ const [link , setlink]  = useState("")
      
       var a=  document.querySelector('#butNext');
 
-       var b= document.querySelector('.link');
       
-      var b="/helps"
-      console.log(checkOne)
-      console.log(b.href);
+      
         {count == 1 ? (a.className="text-white opacity-100 bg-blue-500 w-48 h-16 rounded-lg text-lg focus:shadow-outline"(setstate(checkOne.htmlFor)) (console.log(state))): 
       (
       a.className="text-white opacity-100 bg-blue-500 w-48 h-16 rounded-lg text-lg focus:shadow-outline"
@@ -66,7 +64,7 @@ const [link , setlink]  = useState("")
   
       }else if( inputTwo.checked=true){
         setstate(checkTwo.htmlFor);
-         a.className="hover:bg-blue-700 bg-blue-500 w-48 h-16 rounded-lg text-lg focus:shadow-outline "
+         a.className="hover:bg-blue-700 text-white bg-blue-500 w-48 h-16 rounded-lg text-lg focus:shadow-outline "
          // a.setAttribute("class", "click-btn")
          setlink("/chooseF")
        console.log(state);
@@ -82,8 +80,7 @@ let Style = " opacity-50  "
 let but = "mt-5 space-y-5 h-auto md:h-10  text-left border-2 border-slate-300   "
 
 
-return <div className="w-screen h-screen bg-slate-300 flex 
-justify-center items-center"> 
+return <div className={font}> 
 
 <form action="" onSubmit={handleSubmit(onSubmit)}>
     
@@ -137,8 +134,8 @@ prev
 </button> */}
      <Link class="link" to={link}  >   
      <button type="submit"   id="butNext" 
-    className="hover:bg-blue-700 bg-blue-500 w-48 h-16 rounded-lg text-lg focus:shadow-outline opacity-50"
-    href="#">
+    className="hover:bg-blue-700 bg-blue-500 text-white w-48 h-16 rounded-lg text-lg focus:shadow-outline opacity-50"
+    >
               
                 next
         </button> 

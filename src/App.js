@@ -42,9 +42,7 @@ return(
 <ImageCoponentOne/>
 </div>
 
-<div>
-  <Bodybutton/>
-</div>
+
 <div>
 
   < BodyLeftOne/>

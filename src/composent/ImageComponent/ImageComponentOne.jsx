@@ -20,7 +20,7 @@ function ImageCoponentOne() {
 {images.map( (img) => {
   return( 
   <div className='md:shrink-0 bg-blue-400 '>
-  <img src={img} className=" h-[900px]" alt="imgas "></img>
+  <img src={img} className=" h-[520px] md:h-[900px]" alt="imgas "></img>
   </div>
   
   )

@@ -1,14 +1,79 @@
 import { useState } from "react";
 import { Link } from "react-router-dom"
 import {useForm} from "react-hook-form"
+import axios from 'axios'
+import emailjs from "@emailjs/browser"
 
 function ChooseStandard(){
 
   //initiallisation des outils de gestion des formilaires de react js
    const {handleSubmit,register,formState: {errors}} = useForm()
-    function onSubmit(data){
-      console.log(data)
-    }
+   const onSubmit = (data) => {
+
+      // axios.post(url+'data/list/',{
+      //    'name': data.class,
+      //    'niveau':data.email,
+      //    'classe':data.class,
+      // }).then(res => {
+      //    alert("errosfdfgdf");
+      //    console.log(data)
+      //    gestAllTask()
+      // }).then(err => {
+      //    alert(err);
+      // })
+      // gestAllTask()
+      // alert(data.class);
+      // console.log(data)
+      
+      axios ({
+         method:'post',
+         url:"http://127.0.0.1:8000/data/add/",
+         data:{
+            'name':data.name,
+            'niveau':data.email,
+            'classe':data.class
+         }
+      }).then((res) =>{
+         alert(data.name)
+         
+      }).catch((res) =>{
+         alert(res);
+        
+      })
+   
+      
+   // //data.email ="sandjonyves@gmail.com"
+   // console.log(data);
+   //    const template ="template_flpq63a"
+   //    const service = "service_9dc6y2a"
+   //    sendfeeback(service,template,{
+   //       name:data.name,
+   //       phone : data.number,
+   //       niveau : data.class,
+   //       //reply_to : r.target.reset()
+   //    })
+    
+   //  }
+   // const sendfeeback = (service,template,variable) => {
+   //    //alert("sucess");
+   //    var start = window.performance.now();
+   // emailjs
+   
+   // .send((r) =>{
+   //    alert("sucess------------------------------");  
+   // },service,template,variable,"jhpPPttN08Qj9L-EJ")
+   
+   // .then((res) => {
+   //    //alert("sucess");
+   //    var end = window.performance.now();
+   //    var execute=end-start
+   //    alert(start+"   les temps   "+end+"temps d'execution :"+execute);
+   // })
+   // .catch((err) =>{
+     
+   //    alert("error");
+   // })
+   }
 
    //  
    const pattern = /^6[0-9]{8}$/
@@ -92,12 +157,13 @@ function ChooseStandard(){
    const [formNo2,setFormNo2] = useState(formArray2[0])
 
    let chekbox ="w-6 space-x-5  hover:bg-red-400"
-   let Style = "m-0 opacity-50  text-lg h-auto w-auto "
-   let Styles = "ml-5   text-lg h-auto w-auto "
-   let but = "flex flex-col mt-5 space-y-5  h-auto  w-auto   ml-20 border-2 border-slate-300 mr-20  "
-   let buts = "flex flex-col mt-5 space-y-5  h-auto  w-auto   ml-10 border-2 border-slate-300 mr-10  "
-   let font = "w-screen h-screen  bg-gradient-to-r from-cyan-500 to-blue-500 flex  justify-center items-center"
-
+   let Style = "m-0 opacity-50  text-lg h-auto w-auto  hover:bg-blue-200 focus:bg-red-400"
+let Styles = "ml-5   text-lg h-auto w-auto "
+let but = "flex flex-col mt-5 space-y-5  h-auto  w-auto   ml-20 border-2 border-slate-300 mr-20  "
+let buts = "flex flex-col mt-5 space-y-5  h-auto  w-auto   ml-10 border-2 border-slate-300 mr-10  "
+let font = "w-screen h-screen  bg-gradient-to-r from-cyan-500 to-blue-500 flex  justify-center items-center"
+let StylePev = " bg-blue-500 font-bold py-2 h-auto w-40 mb-5  px-4 rounded focus:outline-none text-white focus:shadow-outline hover:bg-blue-700"
+let StyleTitle = "capitalize text-center text-xl bg-blue-500 text-white "
    //incrrmentation ou decrementation de fomno pour afficher chaque forùulaire
    const handleNext = () =>{
        
@@ -163,72 +229,41 @@ function ChooseStandard(){
       ctl2()
    }
 
+ const tabClas = ["class1","class2","class3","class4","class5","class6"]
+ const tabClas2 = ["From1","From2","From3","From4","From5","lawer","upper"]
+ const tabMatirePrimaire = ["matamatic","science","hist/geo/ecm","anglais"]
+
 
   return <div onSubmit={handleSubmit(onSubmit)}>
 
-<div className="text-center text-w-[300px]">SERAD LA SAOLUTION POUR VOS ENFANTS </div>
+<div className="h-20"><h1 className="py-5 text-center text-w-[300px] ">SERAD LA SAOLUTION POUR VOS ENFANTS</h1> </div>
 
 {
 formNo === 2 && <div>
 <div className={font}>
 <div className="card  md:w-[400px] w-[300px] max-[332px]:w-[250px]  rounded-md shadow-md bg-white  my-20">
      
-      <h1 className="uppercase text-center text-xl ">
+      <h1 className={StyleTitle}>
          Choose class
       </h1>
-
-      <div className={but}>
-         <input type="button" 
-            value=" Class1"
-            {...register("class")} 
-            onClick={handleNext} 
-            className={Style} >
-         </input>
-      </div>
-      <div className={but}>
-         <input type="button" 
-            value="Class2" 
-            onClick={handleNext}   
-            className={Style}>
-         </input>
-      </div>
-      <div className={but}>
-         <input type="button"
-            value="Class3" 
-            onClick={handleNext}   
-            className={Style}>
-         </input>
-      </div>
-      <div className={but}>
-         <input type="button" 
-            value="Class4" 
-            onClick={handleNext}  
-            className={Style}>
-         </input>
-      </div>
-      <div className={but}>
-         <input type="button" 
-            value="Class5" 
-            onClick={handleNext}   
-            className={Style}>  
-         </input>
-      </div>
-      <div className={but}>
-         <input type="button" 
-            value="Class6"  
-            onClick={handleNext}  
-            className={Style}>
-         </input>
-      </div>
-     
+       
+       <div className={buts}>
+      
+         {tabClas.map((element) => {
+            console.log(element)
+            return <ul><div className={buts}><button value={element} className={Style} onClick={handleNext} {...register("class")}>{element}</button>
+             </div></ul>
+         })}
+       
+       </div>
+  
+    
       <div class=" space-x-20 mt-10  text-center  
           items-center justify-between">
          <button onClick={all2}   
                class="butNexts" 
                id="butNext" 
-               className="bg-blue-500 
-               font-bold py-2  px-4 rounded focus:outline-none 
-               focus:shadow-outline hover:bg-blue-700 " href="#">
+               className={StylePev} href="#">
                prev
          </button>
    </div> 
@@ -247,7 +282,7 @@ formNo === 2 && <div>
   
    <form  className=" p-5 max-[500px]:h-[1000px] h-screen bg-slate-300 w-screen h-screen  bg-gradient-to-r from-cyan-500 to-blue-500 flex  justify-center items-center">
    <div className="card w-[500px]    h-auto rounded-md shadow-md bg-white p-5 my-10">
-      <h1 className="text-center text-xl "> Choose Matter</h1>
+      <h1 className={StyleTitle}> Choose Matter</h1>
    <div className={buts}>
       <label htmlFor="Mathematics   " className={Style}>
          Mathematics
@@ -265,50 +300,17 @@ formNo === 2 && <div>
             <input type="checkbox" class="checksM" onClick={radioValue} {...register("matiere")} value="Science and Tecnology" className={Styles} />
          </label>
    </div>
-   <div className={buts}>
-         <label htmlFor="English" className={Style}>
-            English 
-               <input type="checkbox" class="checksM" onClick={radioValue} {...register("matiere")} value="English"   className={Styles}/>
-         </label>
-   </div>
-   <div className={buts}>
-         <label htmlFor="French" className={Style}>
-            French
-               <input type="checkbox" class="checksM" onClick={radioValue} {...register("matiere")} value="French"   className={Styles}></input>
-         </label>
-   </div>
-   <div className={buts}>
-         <label htmlFor="social tudies" className={Style}>
-            social tudies 
-               <input type="checkbox" class="checksM" onClick={radioValue} {...register("matiere")} value="social tudies" 
-                 className={Styles} ></input>
-         </label>
-   </div>
-   <div className={buts}>
-         <label htmlFor="Vocational Studies" className={Style}>
-            Vocational Studies    
-               <input type="checkbox" class="checksM" onClick={radioValue} {...register("matiere")} value="Vocational Studies "   
-               className={Styles}></input>
-         </label>
-         </div>
-         <div className={buts}>
-            <label htmlFor="Artistic Education" className={Style}>
-               Artistic Education
-               <input type="checkbox" class="checksM" onClick={radioValue} {...register("matiere")} 
-                  value="Artistic Education"   
-                  className={Styles}>
-               </input>
-            </label>
-      </div>
-      <div className={buts}>
-         <label htmlFor="Natural Language" className={Style}>
-         Natural Language
-            <input type="checkbox" class="checksM" onClick={radioValue} {...register("matiere")}
-               value="Natural Language"   
-               className={Styles}>
-            </input>
-         </label>
-      </div>
+   
+   <div className={but}>
+      
+      {tabMatirePrimaire.map((element) => {
+         console.log(element)
+         return  <div className={but}> <ul>   <li> {element}<input type="checkbox" class="checksM" onClick={radioValue} {...register("matiere")} value={element}  className={Styles}/>
+         </li> </ul></div>
+      })}
+    
+    </div>
+  
    <div>
       <div class=" space-x-20 mt-10  text-center   items-center justify-between">
          <button  onClick={handlePrev}  class=" bg-blue-500 hover:bg-blue-700 text-white
@@ -337,7 +339,7 @@ formNo === 2 && <div>
 <form className="card w-[375px] rounded-md shadow-md bg-white p-5 ">
       <div className="flex flex-col mb-2 ">
          <div className="text-center"> <h1 htmlFor="how can we joint you text-center"
-          className="text-2xl">Comment pouvons nous vous contacté </h1>
+           className={StyleTitle}>Comment pouvons nous vous contacté </h1>
          </div>
          <label htmlFor="name " className="">nom</label>
          <input type="text" className="p-2 border boder-slate-400 mt-1 outline-0
@@ -433,7 +435,7 @@ formNo === 2 && <div>
 formNo2 === 1  && <div id="formctl" className="">
    <div className={font}>
   <div className="card w-[400px] h-auto md:mx-20 mx-60  rounded-md shadow-md bg-white p0 my-20 ">
-   <h1 className="uppercase text-center text-xl">choose the academic level </h1>
+   <h1 className={StyleTitle}>choose the academic level </h1>
       <div className={but} onClick={all} >
          <button className={Style}  >primaire</button>
       </div>
@@ -446,8 +448,7 @@ formNo2 === 1  && <div id="formctl" className="">
 prev
 </button> */}
        <Link to="/form"><button   id="butNext" 
-         className="  bg-blue-500 hover:bg-blue-700 text-white
-         font-bold py-2  px-4 rounded focus:outline-none focus:shadow-outline ">
+         className={StylePev}>
              <div className="">prev</div>
         </button> </Link>
 </div>
@@ -466,68 +467,27 @@ formNo2 === 2 && <div>
    <div className={font}>
    <div className="card  md:w-[400px] w-[300px] max-[332px]:w-[250px]  rounded-md shadow-md bg-white  my-20">
         
-         <h1 className="uppercase text-center text-xl ">
+         <h1 className={StyleTitle}>
             Choose class
          </h1>
+         <div className={buts}>
+      
+         {tabClas2.map((element) => {
+            console.log(element)
+            return <ul><div className={buts}><button value={element} className={Style} onClick={handleNext} {...register("class")}>{element}</button>
+            </div></ul>
+         })}
+       
+       </div>
+  
 
-         <div className={but}>
-            <input type="button" 
-               value=" Form1"
-               {...register("class")} 
-               onClick={handleNext2} 
-               className={Style} >
-            </input>
-         </div>
-         <div className={but}>
-            <input type="button" 
-               value="Form2" 
-               onClick={handleNext2}   
-               className={Style}>
-            </input>
-         </div>
-         <div className={but}>
-            <input type="button"
-               value="Form3" 
-               onClick={handleNext2}   
-               className={Style}>
-            </input>
-         </div>
-         <div className={but}>
-            <input type="button" 
-               value="Form4" 
-               onClick={handleNext2}  
-               className={Style}>
-            </input>
-         </div>
-         <div className={but}>
-            <input type="button" 
-               value="Form5" 
-               onClick={handleNext2}   
-               className={Style}>  
-            </input>
-         </div>
-         <div className={but}>
-            <input type="button" 
-               value="Lower6"  
-               onClick={handleNext2}  
-               className={Style}>
-            </input>
-         </div>
-         <div className={but}>
-            <input type="button" 
-               value="Opper6"  
-               onClick={handleNext2}  
-               className={Style}>
-            </input>
-         </div>
+       
          <div class=" space-x-20 mt-10  text-center  
              items-center justify-between">
             <button onClick={all21}   
                   class="butNexts" 
                   id="butNext" 
-                  className="bg-blue-500 
-                  font-bold py-2  px-4 rounded focus:outline-none 
-                  focus:shadow-outline hover:bg-blue-700 " href="#">
+                  className={StylePev}>
                   prev
             </button>
       </div> 
@@ -547,82 +507,19 @@ formNo2 === 2 && <div>
   
    <div className=" p-5 max-[500px]:h-[1000px] h-screen bg-slate-300 w-screen h-screen  bg-gradient-to-r from-cyan-500 to-blue-500 flex  justify-center items-center ">
    <div className="card w-[500px]    h-auto rounded-md shadow-md bg-white p-5 my-10">
-      <h1 className="text-center text-xl "> choose matter</h1>
-   <div className={buts}>
-      <label htmlFor="Mathematics   " className={Style}>
-         Mathematics
-         <input  type="checkbox" class="checksM" onClick={radioValue} {...register("matiere")} value="mathematics"  className={Styles}  /> 
-      </label>
-   </div>
-   <div className={buts}>
-      <label htmlFor="ICT" className={Style}>ICT
-            <input type="checkbox" class="checksM" onClick={radioValue} {...register("matiere")} value="ICT" className={Styles}/>
-      </label>
-   </div>
-   <div className={buts}>
-         <label htmlFor=" Science and Tecnology" className={Style}> 
-         Science and Tecnology
-            <input type="checkbox" class="checksM" onClick={radioValue} {...register("matiere")} value="Science and Tecnology" className={Styles} />
-         </label>
-   </div>
-   <div className={buts}>
-         <label htmlFor="English" className={Style}>
-            English 
-               <input type="checkbox" class="checksM" onClick={radioValue} {...register("matiere")} value="English"   className={Styles}/>
-         </label>
-   </div>
-   <div className={buts}>
-         <label htmlFor="French" className={Style}>
-            French
-               <input type="checkbox" class="checksM" onClick={radioValue} {...register("matiere")} value="French"   className={Styles}></input>
-         </label>
-   </div>
-   <div className={buts}>
-         <label htmlFor="social tudies" className={Style}>
-            social tudies 
-               <input type="checkbox" class="checksM" onClick={radioValue} {...register("matiere")} value="social tudies" 
-                 className={Styles} ></input>
-         </label>
-   </div>
-   <div className={buts}>
-         <label htmlFor="Vocational Studies" className={Style}>
-            Vocational Studies    
-               <input type="checkbox" class="checksM" onClick={radioValue} {...register("matiere")} value="Vocational Studies "   
-               className={Styles}></input>
-         </label>
-         </div>
-         <div className={buts}>
-            <label htmlFor="chimical" className={Style}>
-               chimical
-               <input type="checkbox" class="checksM" onClick={radioValue} {...register("matiere")} 
-                  value="chimical"   
-                  className={Styles}>
-               </input>
-            </label>
-      </div>
-      <div className={buts}>
-         <label htmlFor="phisics" className={Style}>
-         physics
-            <input type="checkbox" class="checksM" onClick={radioValue} {...register("matiere")}
-               value="phisics"   
-               className={Styles}>
-            </input>
-         </label>
-      </div>
-   <div>
-      <div class=" space-x-20 mt-10  text-center   items-center justify-between">
-         <button onClick={handlePrev2}  class=" bg-blue-500 hover:bg-blue-700 text-white
-          font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" 
-          type="button">
-            prev
-         </button>
-         <button  class="butNexts" id="butNexts"  className=" bg-blue-500 hover:bg-blue-700 
-         text-white  font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline
-          " href="#">
-            next
-         </button>
-   </div>
-   </div>
+      <h1 className={StyleTitle}> choose matter</h1>
+
+      <div className={but}>
+      
+      {tabMatirePrimaire.map((element) => {
+         console.log(element)
+         return  <div className={but}> <ul>   <li> {element}<input type="checkbox" class="checksM" onClick={radioValue} {...register("matiere")} value={element}  className={Styles}/>
+         </li> </ul></div>
+      })}
+    
+    </div>
+  
+  
 </div>
 </div>
 </div>
@@ -637,7 +534,7 @@ formNo2 === 2 && <div>
 <form className="card w-[375px] rounded-md shadow-md bg-white p-5 ">
       <div className="flex flex-col mb-2 ">
          <div className="text-center"> <h1 htmlFor="how can we joint you text-center"
-          className="text-2xl">Comment pouvons nous vous contacté </h1>
+          className={StyleTitle}>Comment pouvons nous vous contacté </h1>
          </div>
          <label htmlFor="name " className="">nom</label>
          <input type="text" className="p-2 border boder-slate-400 mt-1 outline-0
@@ -705,7 +602,7 @@ formNo2 === 2 && <div>
       <div>
          
       <div class=" space-x-20 mt-10  text-center   items-center justify-between">
-         <button onClick={change} id = "prc" class=" bg-blue-500 hover:bg-blue-700 text-white
+         <button onClick={change} id = "prc" className=" bg-blue-500 hover:bg-blue-700 text-white
           font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" 
           type="button">
            prec

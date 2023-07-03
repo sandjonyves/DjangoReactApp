@@ -2,12 +2,14 @@ import { Link } from "react-router-dom"
 import React from "react"
 function Bodybutton(params) {
 
-      let but="bg-green-800 text-white active:bg-green-300 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
+      let but="bg-green-800 text-white hover:bg-green-500 focus: font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
        let StyleTd="space-x-5 space-y-5 max-[440px]:space-x-1 max-[440px]:space-y-1     w-[150px] h-[80px] text-center "
     
        const [showModal, setShowModal] = React.useState(false);
        const [showModals, setShowModals] = React.useState(false);
+       const [showModalss, setShowModalss] = React.useState(false);
     
+     
        return(
     <div>
 
@@ -23,32 +25,35 @@ function Bodybutton(params) {
     
             </div>
         </div> */}
-        <table className="px-auto table-auto absolute  px-5 top-[200px]  lg:mx-[400px]
-         mx-[300px] lg:ml-[500px] max-[858px]:mx-[200px] max-[628px]:mx-[100px] max-[600px]:mx-[70px] max-[338px]:mx-[10px] w-[500px] max-[440px]:w-[300px]  h-[300px]" >
+        <table className="px-auto table-auto absolute  px-5 top-[0px]  lg:mx-[400px]
+         mx-[300px] lg:ml-[0px] max-[1022px]:mx-[5px] max-[858px]:mx-[0px] max-[628px]:mx-[0px] max-[600px]:mx-[0px] max-[338px]:mx-[20px] w-[500px] max-[440px]:w-[440px]  h-[300px]" >
 
             <tbody>
                 <tr>
                     <td >
-                    <div className={StyleTd}> <button  className={but}>
+                    <div className={StyleTd}> <button className={but}>
                               <Link to="/he">bon à savoir</Link>
                         </button></div>
                     </td>
                     
                     <td >
-                       <div className={StyleTd} onClick={() => setShowModals(true)}> <button  className={but} > 
+                       <div class="but" className={StyleTd} onClick={() => setShowModals(true) }> <button  className={but} > 
                              devinir un encadreur
                         </button></div>
                     </td>
                 </tr>
                 <tr>
                    <td >
-                   <div className={StyleTd}><button className={but} onClick={() => setShowModals(true)}>comment obtenir un encadreur</button></div> 
+                   <div className={StyleTd}>
+                    <button class="but" className={but} onClick={() => setShowModalss(true)}>
+                      comment obtenir un encadreur
+                      </button></div> 
 
                     </td>
                    
                     <td >
                     <div className={StyleTd}>
-                       <button  className={but} onClick={() => setShowModal(true)}>
+                       <button  class="but" className={but} onClick={() => setShowModal(true)}>
                         obtenir de l'aide Gratuit
                         </button>
                         </div>
@@ -67,7 +72,7 @@ function Bodybutton(params) {
       >
         Open regular modal
       </button> */}
-      {showModal ? (
+      {showModal  ?  (
         <>
           <div
             className="justify-center items-center flex overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none"
@@ -120,7 +125,8 @@ function Bodybutton(params) {
       ) : null}
     </>
 
-   {showModals?(
+
+   {showModalss?(
     
  
     <>
@@ -133,7 +139,7 @@ function Bodybutton(params) {
                 {/*header*/}
                 <div className="flex items-start justify-between p-5 border-b border-solid border-slate-200 rounded-t">
                   <h3 className="text-3xl font-semibold capitalize">
-                   Comment obtenir un encardreur en un instand ave Serad Education
+                   comment Obtenir un encardreur en un instand avec Serad Education
                   </h3>
                   <button
                     className="p-1 ml-auto bg-transparent border-0 text-black opacity-5 float-right text-3xl leading-none font-semibold outline-none focus:outline-none"
@@ -201,7 +207,7 @@ function Bodybutton(params) {
                 {/*header*/}
                 <div className="flex items-start justify-between p-5 border-b border-solid border-slate-200 rounded-t">
                   <h3 className="text-3xl font-semibold capitalize">
-                   Comment devinir un encardreur en un instand chez Serad Education
+                   Comment devenir un encardreur en un instand chez Serad Education
                   </h3>
                   <button
                     className="p-1 ml-auto bg-transparent border-0 text-black opacity-5 float-right text-3xl leading-none font-semibold outline-none focus:outline-none"
@@ -228,10 +234,7 @@ function Bodybutton(params) {
                        <p className="my-4 mx-5 text-slate-500 text-lg leading-relaxed">
                         -Et en fin nos allons vous présentez le reglement et les modalitées
                        </p>
-
-                     
-
-                     
+ 
                   </div>
                              </div>
                 {/*footer*/}
@@ -244,11 +247,14 @@ function Bodybutton(params) {
                     fermer
                   </button>
                   <button
-                    className="bg-emerald-500 text-white active:bg-emerald-600 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
+                    className="bg-emerald-500 text-white active:bg-emerald-600 font-bold
+                     uppercase text-sm px-6 py-3 rounded shadow 
+                     hover:shadow-lg outline-none focus:outline-none
+                      mr-1 mb-1 ease-linear transition-all duration-150"
                     type="button"
                     
                   >
-                    <Link to="/choose">devenir</Link>
+                    <Link to="/Encardreur">devenir</Link>
                   </button>
                 </div>
               </div>

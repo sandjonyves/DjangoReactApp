@@ -5,7 +5,7 @@ function BodyTextTwo() {
 
 
 return(
-    <div className=" block containe absolute w-full h-auto bg-slate-300 top-[900px]  rounded-b-3xl p-[20px]">
+    <div className=" block containe absolute w-full h-auto bg-slate-300 top-[800px] md:top-[1000px]  rounded-b-3xl p-[20px]">
         
         <div className=" "> 
 
@@ -22,18 +22,19 @@ return(
     
         </figure>
 
-
-        <figure class="md:flex rounded-xl p-8 md:p-0 ">
+        <div>
+        <figure class="md:flex rounded-xl m-8 md:m-0 ">
         <img class="w-26 h-26 md:w-48 md:h-auto md:rounded-none  mx-auto" src="vip2.png" alt="" width="384" height="512">
         </img>
         <div class="pt-10 md:p-8 text-center md:text-left space-y-4">
-          <blockquote>
+          <div>
           <h2 className="h2 uppercase text-[25px] max-[822px]:text-[18px]">fiable</h2>
                 <p className="text-left font-medium"> tous nos encagreurs resoivent un  processus de verification approfonfie</p>
-          </blockquote>
+          </div>
         </div>
         </figure>
-        
+        </div> 
+        <div>
         <figure class="md:flex g-slate-100b rounded-xl p-8 md:p-0 ">
         <img class="w-26 h-26 md:w-48 md:h-auto md:rounded-none  mx-auto" src="images.jpeg" alt="" width="384" height="512">
         </img>
@@ -45,7 +46,7 @@ return(
           </blockquote>
         </div>
         </figure>
-        
+        </div>
        </div>
        
        </div>

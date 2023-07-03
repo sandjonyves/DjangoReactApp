@@ -19,7 +19,7 @@ function Footer_end(params) {
 
      
 
-<div className=" absolute bg-sky-300 w-full  h-[110px] md:top-[1540px] top-[2750px] inline-block
+<div className=" absolute bg-red-300 w-full  h-[110px] md:top-[1540px] top-[2750px] inline-block
 text-center text-2xl " capitalize >
 
 <div><img 

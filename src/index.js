@@ -17,7 +17,7 @@ import Modal from './composent/OtherCoponent/Modal';
 import NewForm from './composent/Forms/NewForm';
 import ChooseStandard from './composent/Forms/FormsGet/ChooseStandard';
 import ChooseStandardF from './composent/Forms/FormsGet/Primary/primaryFrancophone/ChooseStandartF';
-
+import Encardreur from './composent/Forms/formPost/Encardreur';
 
 const router = createBrowserRouter([
   {
@@ -70,6 +70,12 @@ const router = createBrowserRouter([
     element:<ChooseStandardF/>
 
   },
+  {
+    path: "/Encardreur",
+    element:<Encardreur/>
+
+  },
+
 
 
   
