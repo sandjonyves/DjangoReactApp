@@ -31,9 +31,9 @@ function Bodybutton(params) {
             <tbody>
                 <tr>
                     <td >
-                    <div className={StyleTd}> <button className={but}>
-                              <Link to="/he">bon à savoir</Link>
-                        </button></div>
+                    <Link to="/bon"> <div className={StyleTd}> <button className={but}>
+                    bon à savoir
+                        </button></div></Link>
                     </td>
                     
                     <td >
@@ -143,7 +143,7 @@ function Bodybutton(params) {
                   </h3>
                   <button
                     className="p-1 ml-auto bg-transparent border-0 text-black opacity-5 float-right text-3xl leading-none font-semibold outline-none focus:outline-none"
-                    onClick={() => setShowModals(false)}
+                    onClick={() => setShowModalss(false)}
                   >
                     <span className="bg-transparent text-black  h-6 w-6 text-2xl block outline-none focus:outline-none">
                       X
@@ -173,7 +173,7 @@ function Bodybutton(params) {
                   <button
                     className="text-red-500 background-transparent font-bold uppercase px-6 py-2 text-sm outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
                     type="button"
-                    onClick={() => setShowModals(false)}
+                    onClick={() => setShowModalss(false)}
                   >
                     fermer
                   </button>

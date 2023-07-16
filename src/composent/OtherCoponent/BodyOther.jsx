@@ -14,9 +14,9 @@ function BodyOther(params) {
         <div>
             <Navbar/>
         </div>
-<div class="mt-48 text-center ">
-    <h2 className="uppercase">Questions que les parents posent</h2>
-    <h3 class="pt-12">Comment vérifiez-vous vos tuteurs?</h3></div>
+<div class=" text-center text-2xl  text-red-500 ">
+    <h2 className="uppercase">Questions dont posent les parents </h2>
+    <h3 class="pt-12 text-red-400 ">Comment vérifiez-vous vos tuteurs?</h3></div>
         <div class={DivStyle}>
             {/* <h3 class="">Comment vérifiez-vous vos tuteurs?</h3> */}
             <p class=" text-left mt-8 font-display">Avant qu'un tuteur soit accepté en tant que tuteur prepdia,
@@ -25,7 +25,7 @@ function BodyOther(params) {
              des entretiens, des tests de personnalité sont également effectués sur ces tuteurs.
          </p></div>
 
-         <div className="text-center"><h1 class="pt-5">Pourquoi obtenir un tuteur de Prepdia au 
+         <div className="text-center text-2xl capitalize text-red-400 "><h1 class="pt-5">Pourquoi obtenir un tuteur de Prepdia au 
             lieu d'en chercher un moi-même?</h1></div>
          <div class={DivStyle}>
             {/* <h1 class="uppercase">Pourquoi obtenir un tuteur de Prepdia au 
@@ -38,7 +38,7 @@ function BodyOther(params) {
                 de votre enfant sans vous stresser. </p>
                 </div>
             
-            <div className="text-center"><h3 class="pt-5 ">Comment facturez-vous et quels sont vos tarifs?</h3></div>
+            <div className="text-center text-2xl capitalize text-red-400 "><h3 class="pt-5 ">Comment facturez-vous et quels sont vos tarifs?</h3></div>
             <div class={DivStyle}>
                 {/* <h3 class="">Comment facturez-vous et quels sont vos tarifs?</h3> */}
                 <p class="text-left mt-8 ">Nous vous facturons en fonction de la 
@@ -46,12 +46,12 @@ function BodyOther(params) {
                 toujours nous joindre au 654340911</p>
                 </div>
                 
-                <div className="text-center "><h3 class="pt-5">Où se dérouleront les leçons ?</h3></div>
+                <div className="text-center text-2xl capitalize text-red-400 "><h3 class="pt-5">Où se dérouleront les leçons ?</h3></div>
                 <div class={DivStyle}>
                 <p class="text-left mt-8">Votre enfant apprend dans le confort de sa maison </p>
                 </div>
                 
-                <div className="text-center"><h3 className="pt-5">Comment je paye ?</h3></div>
+                <div className="text-center text-2xl capitalize text-red-400 "><h3 className="pt-5">Comment je paye ?</h3></div>
                 <div class={DivStyle}>
                     {/* <h3 class="">Comment je paye ?</h3> */}
                     <p class=" text-left mt-8">Les paiements sont effectués en ligne à l'aide d'un compte d'envoi d'argent mobile de votre choix. Les leçons commencent immédiatement après que nous ayons convenu avec le répétiteur que vous souhaitez payer </p>
@@ -60,10 +60,9 @@ function BodyOther(params) {
 
                     <div>
 
-                      <h1 className="text-center text-xl pt-10">comment le tutorat peut aider votre enfant ?</h1>
+                      <h1 className="text-center text-2xl capitalize text-red-400  pt-10">comment le tutorat peut aider votre enfant ?</h1>
                     <figure className={FIgStyle}>
-  <img class="w-24 h-24 md:w-48 md:h-auto md:rounded-none rounded-full mx-auto" src="logo.png" alt="" width="384" height="512"></img>
-  <div class="pt-6 md:p-8 text-center md:text-left space-y-4">
+  <div class="pt-6 md:p-8 text-center md:text-left space-y-0">
     <blockquote>
       <p class="text-lg font-medium text-white">
         Meilleurs notes
@@ -83,8 +82,7 @@ function BodyOther(params) {
 
      <div>
                     <figure className={FIgStyle}>
-  <img class="w-24 h-24 md:w-48 md:h-auto md:rounded-none rounded-full mx-auto" src="logo.png" alt="" width="384" height="512"></img>
-  <div class="pt-6 md:p-8 text-center md:text-left space-y-4">
+  <div class="pt-6 md:p-8 text-center md:text-left space-y-0">
     <blockquote>
       <p class="text-lg font-medium text-white">
        préparation aux examens
@@ -104,8 +102,7 @@ function BodyOther(params) {
 
      <div>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                
                     <figure className={FIgStyle}>
-      <img class="w-24 h-24 md:w-48 md:h-auto md:rounded-none rounded-full mx-auto" src="logo.png" alt="" width="384" height="512"></img>
-      <div class="pt-6 md:p-8 text-center md:text-left space-y-4">
+      <div class="pt-0 md:p-8 text-center md:text-left ">
       <blockquote>
       <p class="text-lg font-medium text-white">
       Apprentissage pesonnalisé
@@ -128,10 +125,7 @@ function BodyOther(params) {
 </figure>
      </div>
 
-    <div className=""> 
-        <BodyLeftOne ></BodyLeftOne>
-    </div>
-
+   
     </div>
     
 }

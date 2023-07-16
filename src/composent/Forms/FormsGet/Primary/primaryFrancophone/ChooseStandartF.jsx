@@ -2,7 +2,9 @@ import { useState } from "react";
 import { Link } from "react-router-dom"
 import {useForm} from "react-hook-form"
 import axios from 'axios'
+import BodyTextTwo from "../../../../BodyComponent/BodyTextTwo";
 import emailjs from "@emailjs/browser"
+import Bodybutton from "../../../../BodyComponent/BodyButton";
 
 function ChooseStandard(){
 
@@ -84,8 +86,7 @@ function ChooseStandard(){
     
       
       const element = checkboxes2[index].checked;
-      console.log(element);
-      console.log(verif);
+      
       index++;
       if (element) {
          verif=true;
@@ -94,7 +95,7 @@ function ChooseStandard(){
  
  
    if (verif) {
-      console.log(checkboxes2.length);
+   
      
      b.removeAttribute("disable");
      // b.disabled=false;
@@ -132,8 +133,7 @@ function ChooseStandard(){
     
       
       const element = checkboxes2[index].checked;
-      console.log(element);
-      console.log(verif);
+      
       index++;
       if (element) {
          verif=true;
@@ -142,7 +142,7 @@ function ChooseStandard(){
  
  
    if (verif) {
-      console.log(checkboxes2.length);
+      
      
      b.removeAttribute("disable");
      // b.disabled=false;
@@ -175,7 +175,7 @@ function ChooseStandard(){
    var checkboxes2 = document.querySelectorAll('input[type="checkbox"]');
       var b =document.querySelector("#butNext");
     
-      console.log(b);
+    
    
      
       
@@ -184,7 +184,7 @@ function ChooseStandard(){
       //  b.className="bg-blue-500 hover:bg-blue-700  font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline "
       //b.attributes='disable';
       b.addEventListener('click', (event) => {
-         console.log(event);
+       
       
       handleNext()
      });
@@ -230,31 +230,20 @@ function ChooseStandard(){
 //    alert("erros");
 //   })
 // }
-
+ 
 const onSubmit = (data) => {
 
-   // axios.post(url+'data/list/',{
-   //    'name': data.class,
-   //    'niveau':data.email,
-   //    'classe':data.class,
-   // }).then(res => {
-   //    alert("errosfdfgdf");
-   //    console.log(data)
-   //    gestAllTask()
-   // }).then(err => {
-   //    alert(err);
-   // })
-   // gestAllTask()
-   // alert(data.class);
-   // console.log(data)
-   
    axios ({
       method:'post',
       url:"http://127.0.0.1:8000/data/add/",
       data:{
          'name':data.name,
-         'niveau':data.email,
-         'classe':data.class
+         'niveau':data.niveau,
+         'classe':data.class,
+         'matiere':data.matiere.join(";"),
+         'numTel':data.number,
+          'addEmail':data.email,
+          'addresse':data.street
       }
    }).then((res) =>{
       alert(data.name)
@@ -265,14 +254,18 @@ const onSubmit = (data) => {
    })
 
    
-// //data.email ="sandjonyves@gmail.com"
+//data.email ="sandjonyves@gmail.com"
 // console.log(data);
 //    const template ="template_flpq63a"
 //    const service = "service_9dc6y2a"
 //    sendfeeback(service,template,{
 //       name:data.name,
-//       phone : data.number,
-//       niveau : data.class,
+//          niveau:"sil",
+//          classe:data.class,
+//          matiere:data.matiere.join(";"),
+//          numTel:data.number,
+//           addEmail:data.email,
+//           addresse:data.street
 //       //reply_to : r.target.reset()
 //    })
  
@@ -284,7 +277,7 @@ const onSubmit = (data) => {
 
 // .send((r) =>{
 //    alert("sucess------------------------------");  
-// },service,template,variable,"jhpPPttN08Qj9L-EJ")
+// },service,template,variable,"bCNRw6N4el2XeXAxp")
 
 // .then((res) => {
 //    //alert("sucess");
@@ -294,8 +287,26 @@ const onSubmit = (data) => {
 // })
 // .catch((err) =>{
   
-//    alert("error");
+//    alert(JSON.stringify(err));
 // })
+
+// const config ={
+//    Username :"sandjonyves@gmail.com",
+//    password: "BB15C77A9CEEB25B9BF5A28B16BED6D5A060",
+//    Host : "smtp.elasticemail.com",
+//    Port : 2525,
+//    To : "sandjonyves@gmail.com",
+//    from:"sandjonyves@gmail.com",
+//    Subject:"this is my conctact",
+//    Body : "fdsfdsdffdsfdsfdsds"
+
+
+// };
+// if(window.Email){
+//    window.Email.send(config).then(() => alert("bonjour"))
+// }
+return alert('df')
+
 }
 let chekbox ="w-6 space-x-5  hover:bg-red-400"
 let Style = "m-0 opacity-50  text-lg h-auto w-auto  hover:bg-blue-200 focus:bg-red-400"
@@ -371,18 +382,12 @@ formNo === 2 && <div>
    justify-center items-center ">
    <div className="card w-[500px]    h-auto rounded-md shadow-md bg-white p-5 my-10">
       <h1 className={StyleTitle}> CHOIX DES MATIERES</h1>
-      <div className={buts}>
-      <label htmlFor="Mathematics   " className={Style}>
-         Mathematique
-         <input  type="checkbox"  id="checksM" class="checksMs" onClick={radioValue} {...register("matiere")} value="mathematics"  className={Styles}   /> 
-      </label>
-
-   </div>
+    
    
    <div>
         {tabMatirePrimaire.map((element) => {
              return  <div className={buts}>
-             <label htmlFor="Mathematics   " className={Style}>
+             <label htmlFor={element} className={Style}>
                 {element}
                 <input  type="checkbox"  id="checksM" class="checksMs" onClick={radioValue} {...register("matiere")} value={element} className={Styles}   /> 
              </label>
@@ -517,11 +522,11 @@ formNo2 === 1  && <div id="formctl" className="">
   <div className="card w-[400px] h-auto md:mx-20 mx-60  rounded-md shadow-md bg-white p0 my-20 ">
    <h1 className={StyleTitle}>CHOIX DU NIVEAU </h1>
       <div className={but} onClick={all} >
-         <button className={Style}  >primaire</button>
+         <button className={Style} value="primaire" {...register("niveau")}>primaire</button>
       </div>
 
       <div className={but}>
-         <button onClick={handleNext2}  className={Style}>secondaire</button>
+         <button onClick={handleNext2}  className={Style} value="secondaire" {...register("niveau")}>secondaire</button>
       </div>
       <div class=" space-x-20 mt-10  text-center   items-center justify-between">
 {/* <button onClick={handleNext}  class=" bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="button">
@@ -729,11 +734,16 @@ formNo2 === 2 && <div>
           type="button">
            prec
          </button>
-         <button  class="butNexts" id="butNext"  className=" bg-blue-500 hover:bg-blue-700 
+         <div class="butNexts">
+         
+           <button   id="butNext"  className=" bg-blue-500 hover:bg-blue-700 
          text-white  font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline
           " type = "submit"  >
-           suivant
+             
+           Enreigistrer
          </button>
+       
+            </div>
    </div>
    </div>
 

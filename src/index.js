@@ -27,7 +27,7 @@ const router = createBrowserRouter([
     ),
   },
   {
-    path: "cont",
+    path: "/bon",
     element: <BodyOther></BodyOther>,
    
 

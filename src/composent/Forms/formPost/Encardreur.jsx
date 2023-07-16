@@ -1,13 +1,33 @@
 import { useState } from "react";
 import { Link } from "react-router-dom"
 import {useForm} from "react-hook-form"
-
+import axios from "axios";
 function Encardreur(params) {
     const {handleSubmit,register,formState: {errors}} = useForm()
 
     
     const  onSubmit = (data) => {
         console.log(data)
+
+        axios ({
+         method : "post",
+         url :"http://127.0.0.1:8001/data/add2/",
+         data : {
+            'name':data.name,
+            'prenom' : data.Prenom,
+            'numTel' : data.number,
+            'addEmail' : data.email,
+           'untEnseignaement' : data.matiere
+            
+         }
+        }).then((res) =>{
+         alert(data.name)
+         
+      }).catch((res) =>{
+         alert(res);
+        
+      })
+   
       }
 
 
@@ -17,7 +37,7 @@ let StyleTitle = "capitalize text-center text-xl bg-blue-500 text-white "
   
     return <>
     
-   <form action=""  onSubmit={handleSubmit(onSubmit)}>
+   <div   onSubmit={handleSubmit(onSubmit)}>
 
    <div className={font}> 
 
@@ -25,7 +45,7 @@ let StyleTitle = "capitalize text-center text-xl bg-blue-500 text-white "
 <form className="card w-[385px] rounded-md shadow-md bg-white p-5 max-[720px]:m-15">
      
          <div className="text-center"> <h1 htmlFor="how can we joint you text-center"
-          className={StyleTitle}>Comment pouvons nous vous contacté </h1>
+          className={StyleTitle}>ramplire le formulaire  </h1>
          </div>
          <div className="flex flex-col my-5 mb-2 ">
          <label htmlFor="name " className="">Nom</label>
@@ -93,7 +113,7 @@ let StyleTitle = "capitalize text-center text-xl bg-blue-500 text-white "
       <h1 htmlFor="Où habite votre enfant " className=""> Unité d'enseignement </h1>
          <input type="text" 
          className="p-2 border boder-slate-400 mt-1 outline-0
-         rounded-md" placeholder="mathematique " 
+         rounded-md" placeholder="exp:mathematique " 
          {...register("matiere",{
             required:true})}
          />
@@ -111,7 +131,7 @@ let StyleTitle = "capitalize text-center text-xl bg-blue-500 text-white "
 
 </form>
 </div>
-   </form>
+   </div>
 
     </>
     
